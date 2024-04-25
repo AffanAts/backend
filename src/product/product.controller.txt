@@ -1,0 +1,13 @@
+const express = require("express");
+const prisma = require("../db");
+const { getAllProducts } = require("../product/product.service");
+
+const router = express.Router();
+
+router.get("/", async (req, res) => {
+  const products = await getAllProducts();
+
+  res.send(products);
+});
+
+module.exports = router;
